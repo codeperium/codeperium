@@ -1,8 +1,17 @@
+<script>
+	const clickEvn = () => {
+		dataLayer.push({ 'gtm.elementUrl': 'linktree' });
+	};
+</script>
+
 <section>
 	<div>
-		<img src="https://codeperium.s3.eu-west-1.amazonaws.com/assets/images/Logo/RGB/pozioma/SVG/codeperium_logo_white_rgb.svg" alt="logo" />
-		<h3> Work in progress...</h3>
-		<a href="https://linktr.ee/codeperium" script="dataLayer.push({'gtm.elementUrl': 'linktree'});"> Check important links!</a>
+		<img
+			src="https://codeperium.s3.eu-west-1.amazonaws.com/assets/images/Logo/RGB/pozioma/SVG/codeperium_logo_white_rgb.svg"
+			alt="logo"
+		/>
+		<h3>Work in progress...</h3>
+		<a href="https://linktr.ee/codeperium" on:click={clickEvn()}> Check important links!</a>
 	</div>
 </section>
 
@@ -11,8 +20,8 @@
 		width: 100vw;
 		height: 100vh;
 		padding: 0px 50px;
-		background-color: #393C47;
-		color: #F2F6F9;
+		background-color: #393c47;
+		color: #f2f6f9;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -27,29 +36,27 @@
 	section div h3 {
 		display: inline-block;
 		font-size: 32px;
-    margin-bottom: 30px;
+		margin-bottom: 30px;
 	}
 	section div a {
 		display: block;
 		text-decoration: none;
-		color: #F2F6F9;
+		color: #f2f6f9;
 		font-weight: bold;
 		font-size: 24px;
 		padding: 15px 60px;
 		border-radius: 30px;
-		background-color: #D0A45C;
+		background-color: #d0a45c;
 	}
 
 	section div a:hover {
-		color: #393C47;
-		background-color: #FF1F30;
+		color: #393c47;
+		background-color: #ff1f30;
 	}
 
 	section div img {
 		display: block;
 		width: 100%;
-    margin-bottom: 70px;
+		margin-bottom: 70px;
 	}
-	
 </style>
-
