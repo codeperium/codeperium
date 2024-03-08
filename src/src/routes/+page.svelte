@@ -2,7 +2,7 @@
 	<div>
 		<img src="https://codeperium.s3.eu-west-1.amazonaws.com/assets/images/Logo/RGB/pozioma/SVG/codeperium_logo_white_rgb.svg" alt="logo" />
 		<h3> Work in progress...</h3>
-		<a href="https://linktr.ee/codeperium"> Check important links!</a>
+		<a href="https://linktr.ee/codeperium" script="dataLayer.push({'gtm.elementUrl': 'linktree'});"> Check important links!</a>
 	</div>
 </section>
 
