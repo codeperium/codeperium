@@ -1,8 +1,15 @@
-<script>
-	const clickEvn = () => {
-		dataLayer.push({ 'gtm.elementUrl': 'linktree' });
+<script lang="ts">
+	import {pushEvent} from '$lib';
+	import type { MouseEventHandler } from 'svelte/elements';
+	const clickEvn: MouseEventHandler<HTMLAnchorElement> = () => {
+		pushEvent({
+			event: 'click',
+			'gtm.elementUrl': 'linktree'
+		})
 	};
+
 </script>
+
 
 <section>
 	<div>
@@ -11,7 +18,7 @@
 			alt="logo"
 		/>
 		<h3>Work in progress...</h3>
-		<a href="https://linktr.ee/codeperium" on:click={clickEvn()}> Check important links!</a>
+		<a href="#" on:click={(e) => { clickEvn(e) }}> Check important links!</a>
 	</div>
 </section>
 
