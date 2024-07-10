@@ -1,8 +1,9 @@
 import * as Sentry from "@sentry/sveltekit";
+import {PUBLIC_ENV, PUBLIC_SENTRY_DSN} from "$env/static/public";
 
 Sentry.init({
-    environment: process.env.ENV,
-    dsn: process.env.SENTRY_DSN,
+    environment: PUBLIC_ENV,
+    dsn: PUBLIC_SENTRY_DSN,
 
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
