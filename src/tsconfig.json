@@ -1,5 +1,5 @@
 {
-	"extends": "./output/tsconfig.json",
+	"extends": ["./output/tsconfig.json", "/vercel/output/tsconfig.json"],
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
