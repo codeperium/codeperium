@@ -3,7 +3,6 @@ import {PUBLIC_ENV, PUBLIC_SENTRY_DSN, PUBLIC_SENTRY_PROJECT} from "$env/static/
 
 Sentry.init({
     environment: PUBLIC_ENV,
-    release: PUBLIC_SENTRY_PROJECT + process.env.npm_package_version,
     dsn: PUBLIC_SENTRY_DSN,
 
     // We recommend adjusting this value in production, or using tracesSampler
