@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/sveltekit";
-import {PUBLIC_ENV, PUBLIC_SENTRY_DSN} from "$env/static/public";
+import {PUBLIC_ENV, PUBLIC_SENTRY_DSN, PUBLIC_SENTRY_PROJECT} from "$env/static/public";
 
 Sentry.init({
     environment: PUBLIC_ENV,
