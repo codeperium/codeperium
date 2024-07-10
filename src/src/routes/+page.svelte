@@ -2,7 +2,6 @@
 	import {pushEvent} from '$lib';
 	import type { MouseEventHandler } from 'svelte/elements';
 	import * as Sentry from "@sentry/sveltekit"
-	console.log("test")
 	const clickEvn: MouseEventHandler<HTMLAnchorElement> = () => {
 		Sentry.metrics.increment("button_click", 1, {
 			tags: { browser: "chrome", region: "EU" },
