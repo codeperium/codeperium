@@ -1,7 +1,11 @@
 <script lang="ts">
 	import {pushEvent} from '$lib';
 	import type { MouseEventHandler } from 'svelte/elements';
+	import * as Sentry from "@sentry/sveltekit"
 	const clickEvn: MouseEventHandler<HTMLAnchorElement> = () => {
+		Sentry.metrics.increment("button_click", 1, {
+			tags: { browser: "chrome", region: "EU" },
+		});
 		pushEvent({
 			event: 'click',
 			'gtm.elementUrl': 'linktree'
