@@ -5,6 +5,7 @@
 	const clickEvn: MouseEventHandler<HTMLAnchorElement> = () => {
 		Sentry.metrics.increment("button_click", 1, {
 			tags: { browser: "chrome", region: "EU" },
+			timestamp: new Date().getTime()
 		});
 		pushEvent({
 			event: 'click',
