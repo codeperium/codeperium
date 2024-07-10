@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import { sentrySvelteKit } from "@sentry/sveltekit";
 import { loadEnv } from 'vite';
 
+console.log(process.env)
 export default ( mode: string) => {
 
 	process.env = {...process.env, ...loadEnv(mode, process.cwd())};

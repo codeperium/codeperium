@@ -1,11 +1,13 @@
+<script lang='ts'>
+    import { initGTM } from "$lib";
+    import type { Snippet } from "svelte";
+    import {PUBLIC_GTM_ID} from '$env/static/public';
 
-    <script lang='ts'>
-        import { initGTM, dataLayer } from "$lib";
-	    import type { Snippet } from "svelte";
-        let { children }: {children: Snippet} = $props();
+    let { children }: {children: Snippet} = $props();
 
-        initGTM('GTM-5SJPKPC6');
-    </script>
+    initGTM(PUBLIC_GTM_ID);
+</script>
+
 <svelte:head>
 	<meta name="google-adsense-account" content="ca-pub-3698376316992697" />
 	<link href="https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap" rel="stylesheet" />

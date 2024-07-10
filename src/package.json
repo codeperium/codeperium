@@ -1,6 +1,6 @@
 {
 	"name": "src",
-	"version": "0.6.2",
+	"version": "0.7.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev --host 0.0.0.0",
@@ -34,6 +34,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.613.0",
+		"@aws-sdk/credential-providers": "^3.613.0",
+		"@aws-sdk/s3-request-presigner": "^3.613.0",
 		"@sentry/sveltekit": "^8.16.0"
 	}
 }
