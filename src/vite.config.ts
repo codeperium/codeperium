@@ -11,7 +11,12 @@ export default ( mode: string) => {
 			sourcemap: true
 		},
 		plugins: [sveltekit(), sentrySvelteKit({
-			adapter: 'vercel'
+			adapter: 'vercel',
+			sourceMapsUploadOptions: {
+				release: {
+					inject: false
+				}
+			}
 		  })],
 });
 
