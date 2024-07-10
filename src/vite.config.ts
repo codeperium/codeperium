@@ -8,7 +8,10 @@ export default ( mode: string) => {
 	process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 	return defineConfig({
 		plugins: [sentrySvelteKit({
-			adapter: 'vercel'
+			adapter: 'vercel',
+			sourceMapsUploadOptions: {
+			  release: {name: 'codeperium@' + process.env.npm_package_version}
+			},
 		  }), sveltekit()],
 });
 
