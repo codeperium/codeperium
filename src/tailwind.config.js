@@ -31,7 +31,6 @@ export default {
           30: 'rgba(255, 31, 48, .3)',
           100: 'rgb(255, 31, 48)'
         },
-
       },
       lineHeight: {
         '14px': '0.875rem',
@@ -90,4 +89,3 @@ export default {
     }
   ],
 }
-
