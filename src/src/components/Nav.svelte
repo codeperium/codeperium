@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {p} from '$app/navigation';
 </script>
 
 <nav
