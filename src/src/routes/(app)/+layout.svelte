@@ -2,13 +2,18 @@
 	import { initGTM } from '$lib';
 	import { PUBLIC_GTM_ID } from '$env/static/public';
 	import { Header, Main, Footer } from '$components';
-	import { type Snippet } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
     import type {LayoutData} from './$types';
 	import '$styles/app.css';
 
 	let { data, children }: {data: LayoutData, children: Snippet } = $props();
 
     const logo = data.logo;
+    onMount(() => {
+        Object.entries(data.icons.navSquares).forEach(([name, url]) => {
+            document.documentElement.style.setProperty(`--icon-${name}`, `url("${url}")`);
+        })
+    })
 	initGTM(PUBLIC_GTM_ID);
 </script>
 <!-- Load Google metadata and fonts  -->

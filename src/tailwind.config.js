@@ -35,6 +35,21 @@ export default {
       },
       lineHeight: {
         '14px': '0.875rem',
+      },
+      keyframes: {
+        'nav-squares': {
+          '7.5%, 87.5%': { backgroundImage: 'var(--icon-1)' },
+          '15%, 80%': { backgroundImage: 'var(--icon-2)' },
+          '22.5%, 72.5%':{ backgroundImage: 'var(--icon-3)' },
+          '30%, 65%':{ backgroundImage: 'var(--icon-4)' },
+          '37.5%, 57.5%':{ backgroundImage: 'var(--icon-5)' },
+          '45%':{ backgroundImage: 'var(--icon-full)' },
+          '0%, 100%': { backgroundImage: 'none' }
+          
+        }
+      },
+      animation: {
+        'nav-squares': 'nav-squares 5s ease-out infinite',
       }
     },
   },
@@ -42,25 +57,31 @@ export default {
     ({ addComponents, theme }) => {
       addComponents({
         '.nav-before': {
+          transitionProperty: 'color',
+          transitionTimingFunction: 'ease-out',
+          transitionDuration: '150ms',
           '&::before': {
             content: '""',
-            display: 'none',
+            visibility: 'hidden',
             width: theme('spacing.6'),
             height: theme('spacing.2'),
-            backgroundColor: theme('colors.red'),
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             position: 'absolute',
+            opacity: 0,
             top: 0,
             right: 0,
-            
+            transitionProperty: 'visibility, opacity',
+            transitionTimingFunction: 'ease-out',
+            transitionDuration: '150ms',
           },
           '&:hover': {
             '&::before': {
-                display: 'inline-block'
-              }
+              visibility: 'visible',
+              opacity: 1.0
             }
+          },
         },
       })
     }

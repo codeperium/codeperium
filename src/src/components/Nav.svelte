@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {p} from '$app/navigation';
 </script>
 
 <nav
@@ -22,16 +23,8 @@
             pt-1
             lg:h-[25px] lg:leading-[25px]
             relative
-            before:content[]
-            before:absolute
-            before:right-0
-            before:top-0
-            before:w-[24px]
-            before:h-[7px]
-            before:bg-red
-            before:block
-            before:mb-1
-            hover:before:inline-block"
+            nav-before
+            before:animate-nav-squares"
 	>
 		Home
 	</a>
@@ -47,16 +40,8 @@
             lg:h-[25px] lg:leading-[25px]
             hover:text-grey-dark
             relative
-            before:content[]
-            before:absolute
-            before:right-0
-            before:top-0
-            before:w-[24px]
-            before:h-[7px]
-            before:bg-red
-            before:hidden
-            before:mb-1
-            hover:before:inline-block"
+            nav-before
+            before:animate-nav-squares"
 	>
 		Blog
 	</a>
@@ -72,16 +57,8 @@
             lg:h-[25px] lg:leading-[25px]
             hover:text-grey-dark
             relative
-            before:content[]
-            before:absolute
-            before:right-0
-            before:top-0
-            before:w-[24px]
-            before:h-[7px]
-            before:bg-red
-            before:hidden
-            before:mb-1
-            hover:before:inline-block"
+            nav-before
+            before:animate-nav-squares"
 	>
 		Portfolio
 	</a>
@@ -97,11 +74,20 @@
             lg:h-[25px] lg:leading-[25px]
             hover:text-grey-dark
             relative
-            nav-before"
+            nav-before
+            before:animate-nav-squares"
 	>
 		Contact us
 	</a>
 </nav>
 
 <style lang="postcss">
+    .active {
+        &::before {
+            visibility: visible;
+            opacity: 1.0;
+            background-image: var(--icon-full);
+            animation-duration: 0s;
+        }
+    }
 </style>
