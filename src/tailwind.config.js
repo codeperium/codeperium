@@ -50,6 +50,9 @@ export default {
       },
       animation: {
         'nav-squares': 'nav-squares 5s ease-out infinite',
+      },
+      backgroundImage: {
+        'nav-squares-full': 'var(--icon-full)'
       }
     },
   },

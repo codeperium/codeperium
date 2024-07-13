@@ -1,92 +1,63 @@
 <script lang="ts">
+	import type { MouseEventHandler } from 'svelte/elements';
+	import NavItem from './NavItem.svelte';
+
+    let isOpen = $state(false);
+    let innerWidth = $state(0);
+
+	// Close menu when clicking outside
+	const handleClickOutside: MouseEventHandler<Window> = (event) => {
+		if ((isOpen && !(event.target as HTMLElement).closest('nav'))) {
+			isOpen = false;
+		}
+	};
+    const toggleMobileMenu: MouseEventHandler<HTMLButtonElement> = (event) => {
+        isOpen = !isOpen;
+    }
+
+    $effect(() => {
+        if(innerWidth > 600 && isOpen){
+            isOpen = false;
+        }
+    })
+
+
 </script>
+
+<svelte:window on:click={handleClickOutside} bind:innerWidth/>
 
 <nav
 	class="
-        flex justify-between
+        md:flex 
         font-bold
         text-sm
         xl:w-80
         lg:w-72 lg:text-base
         md:w-64"
 >
-	<a
-		href="/"
-		class="
-            active
-            text-grey-dark
-            h-[23px]
-            tracking-tight
-            leading-[23px]
-            align-bottom
-            pt-1
-            lg:h-[25px] lg:leading-[25px]
-            relative
-            nav-before
-            before:animate-nav-squares"
-	>
-		Home
-	</a>
-	<a
-		href="/blog"
-		class="
-            text-grey-dark/60
-            h-[23px]
-            tracking-tight
-            leading-[23px]
-            align-bottom
-            pt-1
-            lg:h-[25px] lg:leading-[25px]
-            hover:text-grey-dark
-            relative
-            nav-before
-            before:animate-nav-squares"
-	>
-		Blog
-	</a>
-	<a
-		href="/portfolio"
-		class="
-            text-grey-dark/60
-            h-[23px]
-            tracking-tight
-            leading-[23px]
-            align-bottom
-            pt-1
-            lg:h-[25px] lg:leading-[25px]
-            hover:text-grey-dark
-            relative
-            nav-before
-            before:animate-nav-squares"
-	>
-		Portfolio
-	</a>
-	<a
-		href="/contact-us"
-		class="
-            text-grey-dark/60
-            h-[23px]
-            tracking-tight
-            leading-[23px]
-            align-bottom
-            pt-1
-            lg:h-[25px] lg:leading-[25px]
-            hover:text-grey-dark
-            relative
-            nav-before
-            before:animate-nav-squares"
-	>
-		Contact us
-	</a>
+    <button onclick={toggleMobileMenu} class="
+                                            flex items-center
+                                            font-semibold
+                                            text-[12px]
+                                            leading-[15px]
+                                            align-middle
+                                            tracking-tight
+                                            md:hidden
+                                            after:bg-nav-squares-full
+                                            after:w-[24px]
+                                            after:h-[7px]
+                                            after:inline-block
+                                            after:ml-[8px]"
+    >
+        MENU
+    </button>
+    <div class={`md:flex justify-between md:flex-row ${isOpen ? 'flex' : 'hidden'} flex-col absolute md:relative md:top-full top-[73px] right-0 max-w-[82px] mr-3 bg-white md:mr-0 md:max-w-none md:w-full`}>
+        <NavItem href="/" onclick={toggleMobileMenu}>Home</NavItem>
+        <NavItem href="/blog" onclick={toggleMobileMenu}>Blog</NavItem>
+        <NavItem href="/portfolio" onclick={toggleMobileMenu}>Portfolio</NavItem>
+        <NavItem href="/contact-us" onclick={toggleMobileMenu}>Contact us</NavItem>
+    </div>
 </nav>
 
 <style lang="postcss">
-    .active {
-        &::before {
-            visibility: visible;
-            opacity: 1.0;
-            background-image: var(--icon-full);
-            animation-duration: 0s;
-        }
-    }
 </style>

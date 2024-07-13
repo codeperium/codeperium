@@ -26,9 +26,13 @@
     2xl:px-20 2xl:max-w-screen-2xl">
 
     {#if innerWidth < 600}
-	    <img src={mobile} alt="codeperium" class="h-8" />
+        <a href='/'>
+	        <img src={mobile} alt="codeperium" class="h-8" />
+        </a>
     {:else}
-	    <img src={desktop} alt="codeperium" class="h-8" />
+        <a href="/">
+	        <img src={desktop} alt="codeperium" class="h-8" />
+        </a>
     {/if}
 	<Nav></Nav>
 </header>
