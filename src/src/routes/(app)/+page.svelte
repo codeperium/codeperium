@@ -1,2 +1,7 @@
-<style lang='postcss'>
+<script lang="ts">
+	
+</script>
+
+<style lang="postcss">
+	
 </style>

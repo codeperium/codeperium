@@ -39,7 +39,7 @@ const fetchObject = async (key: string) => {
             Key: key
         });
         const object = await client.send(command);
-        const url =  await getSignedUrl(client, command);
+        const url =  await getSignedUrl(client, command, { expiresIn: 604800 });
         return url;
     } catch (e: any) {
         return error(500, {message: e?.message})

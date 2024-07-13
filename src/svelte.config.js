@@ -17,7 +17,8 @@ const config = {
 		outDir: 'output',
 		alias: {
 			'$components': path.resolve('./src/components'),
-			'$styles': path.resolve('./src/styles')
+			'$styles': path.resolve('./src/styles'),
+			'$types': path.resolve('./src/routes/types.d.ts')
 		}
 	}
 };
