@@ -1,13 +1,15 @@
 <script lang="ts">
-    export const prerender = true;
-    import Newsletter from "./Newsletter.svelte";
-    import Socials from "./Socials.svelte";
-    import Copyright from "./Copyright.svelte";
-    import type {logoType} from '../ambient';
-    let { logo }: { logo: logoType} = $props();
-    const logoWhite = <string>logo.logoWhite;
+	export const prerender = true;
+	import Newsletter from './Newsletter.svelte';
+	import Socials from './Socials.svelte';
+	import Copyright from './Copyright.svelte';
+	import type { logoType } from '../ambient';
+	let { logo }: { logo: logoType } = $props();
+	const logoWhite = <string>logo.logoWhite;
 </script>
-<footer class="
+
+<footer
+	class="
             flex flex-col
             bg-grey-dark
             absolute
@@ -19,8 +21,7 @@
             xl:px-20
             2xl:max-w-screen-2xl"
 >
-<Newsletter />
-<Socials logo={logoWhite}/>
-<Copyright />
-
+	<Newsletter />
+	<Socials logo={logoWhite} />
+	<Copyright />
 </footer>
