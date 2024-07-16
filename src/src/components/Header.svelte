@@ -2,7 +2,6 @@
 	export const prerender = true;
 	import Nav from './Nav.svelte';
     import type { logoType } from '../ambient';
-    
     let innerWidth = $state(0);
 
 	let { logo }: { logo: logoType} = $props();
