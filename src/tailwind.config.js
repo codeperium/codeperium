@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -6,7 +8,7 @@ export default {
     screens: {
       '2xl': '1920px',
       xl: '1440px',
-      lg: '1024px',
+      lg: {min: '601px', max:'1024px'},
       md: '600px',
       sm: '320px'
     },
@@ -38,26 +40,54 @@ export default {
       },
       keyframes: {
         'nav-squares': {
-          '7.5%, 87.5%': { backgroundImage: 'var(--icon-1)' },
-          '15%, 80%': { backgroundImage: 'var(--icon-2)' },
-          '22.5%, 72.5%':{ backgroundImage: 'var(--icon-3)' },
-          '30%, 65%':{ backgroundImage: 'var(--icon-4)' },
-          '37.5%, 57.5%':{ backgroundImage: 'var(--icon-5)' },
-          '45%':{ backgroundImage: 'var(--icon-full)' },
+          '7.5%, 87.5%': { backgroundImage: 'var(--icon-squares-a1)' },
+          '15%, 80%': { backgroundImage: 'var(--icon-squares-a2)' },
+          '22.5%, 72.5%':{ backgroundImage: 'var(--icon-squares-a3)' },
+          '30%, 65%':{ backgroundImage: 'var(--icon-squares-a4)' },
+          '37.5%, 57.5%':{ backgroundImage: 'var(--icon-squares-a5)' },
+          '45%':{ backgroundImage: 'var(--icon-squares-full)' },
           '0%, 100%': { backgroundImage: 'none' }
           
         }
       },
       animation: {
-        'nav-squares': 'nav-squares 5s ease-out infinite',
+        'nav-squares': 'nav-squares 5s ease-in-out infinite',
       },
       backgroundImage: {
-        'nav-squares-full': 'var(--icon-full)'
+        'sq-full': 'var(--icon-squares-full)'
       }
     },
   },
   plugins: [
-    ({ addComponents, theme }) => {
+    ({matchUtilities, addComponents, theme }) => {
+      const icon = {
+        'sq-full': 'var(--icon-squares-full)',
+        'ar-d-u': 'var(--icon-arrow-double-up)',
+        'ar-d-d': 'var(--icon-arrow-double-down)',
+        'ar-d-r': 'var(--icon-arrow-double-right)',
+        'ar-d-l': 'var(--icon-arrow-double-left)',
+        'ar-u': 'var(--icon-arrow-up)',
+        'ar-d': 'var(--icon-arrow-down)',
+        'ar-r': 'var(--icon-arrow-right)',
+        'ar-l': 'var(--icon-arrow-left)',
+        'sl-b': 'var(--icon-slash-back)',
+        'sl-f': 'var(--icon-slash-for)',
+        'yt': 'var(--icon-socials-yt)',
+        'x': 'var(--icon-socials-x)',
+        'gh': 'var(--icon-socials-github)',
+        'ig': 'var(--icon-socials-instagram)',
+        size: {
+          '3xsm': '0.875rem',
+          '2xsm': '1rem',
+          xsm: '1.125rem',
+          sm: '1.25rem',
+          md: '1.5rem',
+          base: '2rem',
+          lg: '2.5rem',
+          xl: '3rem',
+          '2xl': '4rem'
+        }
+      };
       addComponents({
         '.nav-before': {
           transitionProperty: 'color',
@@ -85,8 +115,43 @@ export default {
               opacity: 1.0
             }
           },
+
+        }
+      }),
+      matchUtilities(
+        {
+          'icon':(value) => ({
+            width: value,
+            height: value,
+          })
         },
-      })
+        {
+          values: icon.size
+        }
+      ),
+      matchUtilities(
+        {
+          'icon':(value) => ({
+            maskImage: value,
+            maskSize: 'contain',
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center center'
+          })
+        },
+        {
+          values: icon
+        }
+      ),
+      matchUtilities(
+        {
+          'icon': (value) => ({
+            backgroundColor: value
+          })
+        },
+        {
+          values: flattenColorPalette(theme('colors'))
+        }
+      )
     }
   ],
 }

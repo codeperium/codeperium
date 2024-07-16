@@ -10,25 +10,22 @@
 
     const logo = data.logo;
     onMount(() => {
-        Object.entries(data.icons.navSquares).forEach(([name, url]) => {
-            document.documentElement.style.setProperty(`--icon-${name}`, `url("${url}")`);
+        let cssVariables = ':root {';
+        Object.entries(data.icons).forEach(([i, icon]) => {
+            cssVariables += `\n  ${icon.name}: url('${icon.url}');`;
         })
+        cssVariables += '\n}';
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = cssVariables;
+        document.head.appendChild(style);
     })
 	initGTM(PUBLIC_GTM_ID);
 </script>
 <!-- Load Google metadata and fonts  -->
 <svelte:head >
+    <title>Codeperium</title>
 	<meta name="google-adsense-account" content="ca-pub-3698376316992697" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap"
-		rel="stylesheet"
-	/>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin='' />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-		rel="stylesheet"
-	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin='' />
 	<link
@@ -40,7 +37,7 @@
 <Main>
 	{@render children()}
 </Main>
-<Footer />
+<Footer {logo} />
 
 <style lang="postcss">
 	:global(html) {
