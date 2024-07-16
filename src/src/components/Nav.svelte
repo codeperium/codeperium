@@ -11,7 +11,7 @@
 			isOpen = false;
 		}
 	};
-    const toggleMobileMenu: MouseEventHandler<HTMLButtonElement> = (event) => {
+    const toggleMobileMenu: MouseEventHandler<HTMLButtonElement> = () => {
         isOpen = !isOpen;
     }
 
@@ -43,7 +43,7 @@
                                             align-middle
                                             tracking-tight
                                             md:hidden
-                                            after:bg-nav-squares-full
+                                            after:bg-sq-full
                                             after:w-[24px]
                                             after:h-[7px]
                                             after:inline-block
@@ -51,7 +51,7 @@
     >
         MENU
     </button>
-    <div class={`md:flex justify-between md:flex-row ${isOpen ? 'flex' : 'hidden'} flex-col absolute md:relative md:top-full top-[73px] right-0 max-w-[82px] mr-3 bg-white md:mr-0 md:max-w-none md:w-full`}>
+    <div class={`md:flex justify-between md:flex-row ${isOpen ? 'flex' : 'hidden'} flex-col absolute md:relative md:top-full top-[73px] right-0 w-full text-center bg-white md:max-w-none `}>
         <NavItem href="/" onclick={toggleMobileMenu}>Home</NavItem>
         <NavItem href="/blog" onclick={toggleMobileMenu}>Blog</NavItem>
         <NavItem href="/portfolio" onclick={toggleMobileMenu}>Portfolio</NavItem>

@@ -1,11 +1,7 @@
 <script lang="ts">
 	export const prerender = true;
 	import Nav from './Nav.svelte';
-    type logoType = {
-        logo: string | void;
-        logomark: string | void;
-        logotype: string | void;
-    }
+    import type { logoType } from '../ambient';
     let innerWidth = $state(0);
 
 	let { logo }: { logo: logoType} = $props();
@@ -24,7 +20,7 @@
     md:px-6
     lg:px-10
     2xl:px-20 2xl:max-w-screen-2xl">
-
+    <h1>
     {#if innerWidth < 600}
         <a href='/'>
 	        <img src={mobile} alt="codeperium" class="h-8" />
@@ -34,6 +30,7 @@
 	        <img src={desktop} alt="codeperium" class="h-8" />
         </a>
     {/if}
+    </h1>
 	<Nav></Nav>
 </header>
 
