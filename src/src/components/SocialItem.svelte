@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	// export const csr = true
+	export const prerender = true
 	let {
 		href,
 		icon,
@@ -14,7 +14,7 @@
 	<a
 		target="_blank"
 		{href}
-		class={`text-transparent after:${icon} after:icon after:bg-white after:icon-md after:-translate-y-2/4 after:-translate-x-2/4 after:inset-1/2 relative w-full h-full block`}
+		class={`text-transparent icon icon-md icon-white ${icon} -translate-y-2/4 -translate-x-2/4 inset-1/2 relative w-full h-full block`}
 	>
 		{@render children()}
 	</a>
