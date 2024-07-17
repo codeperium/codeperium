@@ -51,24 +51,4 @@
 </div>
 
 <style lang="postcss">
-	/* .test {
-        &::before {
-            content: '';
-            display: block;
-            width: 48px;
-            height: 48px;
-            background-color: theme(colors.grey.light);
-            mask-image: var(--icon-arrow-right);
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        &.test-focus{
-            &::before {
-                background-color: theme(colors.white)
-            }
-        }
-    } */
 </style>

@@ -4,7 +4,7 @@
 
 @layer components {
 	.icon {
-		@apply w-[48px] h-[48px] block top-0 left-0 absolute;
+		@apply w-[48px] h-[48px] block top-0 left-0 absolute mask-center mask-no-repeat mask-contain;
 	}
 }
 
@@ -14,5 +14,8 @@
 	}
 	.mask-no-repeat {
 		mask-repeat: no-repeat;
+	}
+	.mask-center {
+		mask-position: center center;
 	}
 }

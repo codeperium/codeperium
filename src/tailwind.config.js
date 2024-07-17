@@ -8,7 +8,7 @@ export default {
 		screens: {
 			'2xl': '1920px',
 			xl: '1440px',
-			lg: { min: '601px', max: '1024px' },
+			lg: '1024px',
 			md: '600px',
 			sm: '320px'
 		},
@@ -70,10 +70,10 @@ export default {
 				'ar-l': 'var(--icon-arrow-left)',
 				'sl-b': 'var(--icon-slash-back)',
 				'sl-f': 'var(--icon-slash-for)',
-				yt: 'var(--icon-socials-yt)',
-				x: 'var(--icon-socials-x)',
-				gh: 'var(--icon-socials-github)',
-				ig: 'var(--icon-socials-instagram)',
+				'yt': 'var(--icon-socials-yt)',
+				'x': 'var(--icon-socials-x)',
+				'gh': 'var(--icon-socials-github)',
+				'ig': 'var(--icon-socials-instagram)',
 				size: {
 					'3xsm': '0.875rem',
 					'2xsm': '1rem',
@@ -129,10 +129,7 @@ export default {
 				matchUtilities(
 					{
 						icon: (value) => ({
-							maskImage: value,
-							maskSize: 'contain',
-							maskRepeat: 'no-repeat',
-							maskPosition: 'center center'
+							maskImage: value
 						})
 					},
 					{
