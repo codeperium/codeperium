@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	export const csr = true
+	export const prerender = true
 	let {
 		href,
 		icon,
