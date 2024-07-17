@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import { page } from '$app/stores';
 
-	let { href, onclick, children }: { href: string; onclick:any; children: Snippet; } = $props();
+	let { href, onclick, children }: { href: string; onclick: any; children: Snippet } = $props();
 	const active = $derived($page.url.pathname === href);
 </script>
 

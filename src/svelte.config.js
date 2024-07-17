@@ -2,7 +2,6 @@ import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
 
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
@@ -16,9 +15,9 @@ const config = {
 		adapter: adapter(),
 		outDir: 'output',
 		alias: {
-			'$components': path.resolve('./src/components'),
-			'$styles': path.resolve('./src/styles'),
-			'$types': path.resolve('./src/routes/types.d.ts')
+			$components: path.resolve('./src/components'),
+			$styles: path.resolve('./src/styles'),
+			$types: path.resolve('./src/routes/types.d.ts')
 		}
 	}
 };
