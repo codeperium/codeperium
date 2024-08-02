@@ -36,16 +36,16 @@
 				onfocusin={handleInputFocusIn}
 				onfocusout={handleInputFocusOut}
 			/>
-			<div
-				class={`w-12 h-12 mr-[-3px] bg-gold relative before:icon before:icon-ar-r  ${onFocus ? 'bg-grey-light before:icon-white' : 'before:icon-grey-light'} `}
-			>
 				<input
 					aria-label="Subscribe!"
 					type="submit"
+          id="subscribe"
 					value=""
-					class={`w-full h-full test align-top`}
+					class={`w-full h-full test align-top hidden`}
 				/>
-			</div>
+
+			<label for="subscribe"
+				class={`w-12 h-12 mr-[-3px] bg-gold relative before:icon before:icon-ar-r cursor-pointer ${onFocus ? 'bg-grey-light before:icon-white hover:bg-gold' : 'before:icon-grey-light'} hover:before:icon-white ` }> </label>
 		</div>
 	</form>
 </div>

@@ -1,6 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import { sentrySvelteKit } from '@sentry/sveltekit';
 import path from 'path';
 
 export default defineConfig({
@@ -19,13 +18,5 @@ export default defineConfig({
 	},
 	plugins: [
 		sveltekit(),
-		sentrySvelteKit({
-			adapter: 'vercel',
-			sourceMapsUploadOptions: {
-				release: {
-					inject: false
-				}
-			}
-		})
-	]
+  ]
 });
