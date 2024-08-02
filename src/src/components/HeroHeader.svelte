@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { type Snippet } from 'svelte';
+  
+  let { children }: {children: Snippet} = $props();
 </script>
 
 <header class="
@@ -22,7 +25,7 @@
     lg:text-[80px] lg:leading-[80px] 
     xl:text-8xl xl:leading-[96px] 
     ">
-      The best space<br>to reach a new IT level!
+      {@render children()}
     </h2>
 </header>
 
