@@ -21,7 +21,7 @@
             xl:px-20
             2xl:max-w-screen-2xl"
 >
-	<Newsletter />
+	<!--<Newsletter /> -->
 	<Socials logo={logoWhite} />
 	<Copyright />
 </footer>
