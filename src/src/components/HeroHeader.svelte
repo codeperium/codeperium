@@ -1,13 +1,7 @@
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
-  import { gsap } from 'gsap';
-  
+  export const prerender = true;
   let { label, subtext }: {label: Snippet<[string]>, subtext: Snippet<[string]>} = $props();
-  onMount( () => {
-    const label = document.querySelector('#label-hero');
-    console.log(label?.textContent?.split(''));
-
-  })
 
 </script>
 
@@ -26,7 +20,7 @@
     lg:text-[80px] lg:leading-[80px] 
     xl:text-8xl xl:leading-[96px] 
     ">
-      {@render label()}
+      <p>{@render label()}</p>
     </h2>
   {#if subtext}
   <span class="

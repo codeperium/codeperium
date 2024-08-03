@@ -33,6 +33,7 @@
         lg:w-72 lg:text-base
         md:w-64"
 >
+  <h1 class="hidden"> Navigation </h1>
 	<button
 		onclick={toggleMobileMenu}
 		class="
@@ -54,10 +55,10 @@
 	<div
 		class={`md:flex justify-between md:flex-row ${isOpen ? 'flex' : 'hidden'} flex-col absolute md:relative md:top-full top-[73px] right-0 w-full text-center bg-white md:max-w-none `}
 	>
-		<NavItem href="/" onclick={toggleMobileMenu}>Home</NavItem>
-		<NavItem href="/blog" onclick={toggleMobileMenu}>Blog</NavItem>
-		<NavItem href="/portfolio" onclick={toggleMobileMenu}>Portfolio</NavItem>
-		<NavItem href="/contact-us" onclick={toggleMobileMenu}>Contact us</NavItem>
+		<NavItem href="/" onclick={toggleMobileMenu}><h2>Home</h2></NavItem>
+		<NavItem href="/blog" onclick={toggleMobileMenu}><h2>Blog</h2></NavItem>
+		<NavItem href="/portfolio" onclick={toggleMobileMenu}><h2>Portfolio</h2></NavItem>
+		<NavItem href="/contact-us" onclick={toggleMobileMenu}><h2>Contact us</h2></NavItem>
 	</div>
 </nav>
 
