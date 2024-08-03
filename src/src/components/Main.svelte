@@ -4,7 +4,6 @@
 	let { children }: { children: Snippet } = $props();
 </script>
 
-<main class="w-full">
 <main class="
   w-full
   2xl:max-w-screen-2xl
