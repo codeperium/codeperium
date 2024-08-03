@@ -3,7 +3,12 @@
 </script>
 
 <HeroHeader> 
-  Contact us
+  {#snippet subtext()}
+    We would be more than happy to hear from you!
+  {/snippet}
+  {#snippet label()}
+    Contact
+  {/snippet}
 </HeroHeader>
 
 <style lang="postcss">

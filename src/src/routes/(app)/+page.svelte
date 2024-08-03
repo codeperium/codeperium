@@ -3,7 +3,12 @@
 </script>
 
 <HeroHeader> 
-  The best space <br> to reach a new IT level!
+  {#snippet subtext()}
+    Empire of Coders
+  {/snippet}
+  {#snippet label()}
+    The best space <br> to reach a new IT level!
+  {/snippet}
 </HeroHeader>
 
 <style lang="postcss">
