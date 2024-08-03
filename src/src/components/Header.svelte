@@ -23,6 +23,7 @@
     2xl:px-20 2xl:max-w-screen-2xl"
 >
 	<h1>
+    <span class="hidden">Codeperium</span>
 		{#if innerWidth < 600}
 			<a href="/">
 				<img src={mobile} alt="codeperium" class="h-8" />
