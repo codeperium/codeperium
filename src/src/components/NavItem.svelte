@@ -9,18 +9,18 @@
 <a
 	{href}
 	class="
-            text-grey-dark/60
-            h-[23px]
-            tracking-tight
-            leading-[23px]
-            align-bottom
-            pt-1
-            lg:h-[25px] lg:leading-[25px]
-            hover:text-grey-dark
-            relative
-            md:nav-before
-            before:animate-nav-squares
-			focus:text-gold"
+    text-grey-dark/60
+    h-[23px]
+    tracking-tight
+    leading-[23px]
+    align-bottom
+    pt-1
+    lg:h-[25px] lg:leading-[25px]
+    hover:text-grey-dark
+    relative
+    md:nav-before
+    before:animate-nav-squares
+    focus:text-gold"
 	class:active
 	{onclick}
 >
