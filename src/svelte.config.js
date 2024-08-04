@@ -18,8 +18,11 @@ const config = {
 			$components: path.resolve('./src/components'),
 			$styles: path.resolve('./src/styles'),
 			$types: path.resolve('./src/routes/types.d.ts')
-		}
-	}
+		},
+	},
+  compilerOptions: {
+    customElement: true
+  }
 };
 
 export default config;

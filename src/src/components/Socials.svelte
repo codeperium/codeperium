@@ -1,3 +1,4 @@
+<svelte:options customElement="socials-main" />
 <script lang="ts">
 	export const prerender = true;
 	import SocialItem from './SocialItem.svelte';
@@ -5,9 +6,19 @@
 </script>
 
 <div
-	class="flex flex-col pb-8 mb-8 border-solid border-opacity-10 border-b border-white md:flex-row justify-between items-center"
->
-	<a href="/" class="pb-8 md:pb-0 md:max-w-[260px] lg:max-w-[380px]">
+	class="
+    flex flex-col justify-between items-center
+    pb-8 mb-8 
+    border-solid border-opacity-10 border-b border-white 
+    md:flex-row 
+">
+	<a href="/" 
+    class="
+      pb-8 
+      md:pb-0 
+      md:max-w-[260px] 
+      lg:max-w-[380px]
+  ">
 		<img src={logo} alt="codeperium" />
 	</a>
 	<div class="socials h-auto flex flex-wrap justify-center gap-2">

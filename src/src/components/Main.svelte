@@ -1,3 +1,4 @@
+<svelte:options customElement="cdpr-main" />
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 

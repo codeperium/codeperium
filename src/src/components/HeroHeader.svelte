@@ -1,3 +1,4 @@
+<svelte:options customElement="hero-header" />
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
   export const prerender = true;
@@ -5,21 +6,22 @@
 
 </script>
 
-<header class="
+<header 
+  class="
     px-4 py-[72px]
     border-solid border-opacity-10 border-b border-grey-light
     md:px-6 
     lg:px-10 
     xl:px-[84px]
-    ">
+">
   <h2 id="label-hero"
     class="
-    text-[56px] leading-[56px] 
-    font-bold max-w-[1111px]
-    md:text-[64px] md:leading-[64px] 
-    lg:text-[80px] lg:leading-[80px] 
-    xl:text-8xl xl:leading-[96px] 
-    ">
+      text-[56px] leading-[56px] font-bold 
+      max-w-[1111px]
+      md:text-[64px] md:leading-[64px] 
+      lg:text-[80px] lg:leading-[80px] 
+      xl:text-8xl xl:leading-[96px] 
+  ">
       <p>{@render label()}</p>
     </h2>
   {#if subtext}

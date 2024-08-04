@@ -1,3 +1,4 @@
+<svelte:options customElement="nav-item" />
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { page } from '$app/stores';
@@ -8,22 +9,20 @@
 
 <a
 	{href}
+	{onclick}
+	class:active
 	class="
-    text-grey-dark/60
+    text-grey-dark/60 tracking-tight leading-[23px] align-bottom
     h-[23px]
-    tracking-tight
-    leading-[23px]
-    align-bottom
     pt-1
-    lg:h-[25px] lg:leading-[25px]
-    hover:text-grey-dark
     relative
     md:nav-before
+    lg:h-[25px] 
+    lg:leading-[25px]
     before:animate-nav-squares
-    focus:text-gold"
-	class:active
-	{onclick}
->
+    focus:text-gold
+    hover:text-grey-dark
+">
 	{@render children()}
 </a>
 
