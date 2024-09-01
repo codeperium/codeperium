@@ -20,9 +20,9 @@ const config = {
 			$types: path.resolve('./src/routes/types.d.ts')
 		},
 	},
-  compilerOptions: {
-    customElement: true
-  }
+	compilerOptions: {
+		customElement: true
+	}
 };
 
 export default config;

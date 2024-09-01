@@ -5,10 +5,11 @@
 	import { onMount, type Snippet } from 'svelte';
 	import type { LayoutData } from './$types';
 	import '$styles/app.css';
+	import { PrismicPreview } from '@prismicio/svelte/kit';
+	import { repositoryName } from '$lib/prismicio';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
-
-	const logo = data.logo;
+	
 	onMount(() => {
 		let cssVariables = ':root {';
 		Object.entries(data.icons).forEach(([i, icon]) => {
@@ -32,20 +33,30 @@
 		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&display=swap"
 		rel="stylesheet"
 	/>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#dae1e5">
-  <meta name="theme-color" content="#ffffff">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+	<meta name="msapplication-TileColor" content="#dae1e5" />
+	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
-<Cursor />
-<Header {logo} />
+<!-- TODO: impove cursor functionality -->
+<!-- <Cursor /> -->
+<Header 
+	mobile={data.logo.logomark} 
+	desktop={data.logo.logo} 
+	nav={data.nav.main_nav} />
 <Main>
 	{@render children()}
 </Main>
-<Footer {logo} />
+<Footer
+	logo={data.logo.logoWhite}
+	socials={data.nav.sm_items}
+	copyright={data.nav.copyright}
+	policies={data.nav.policies}
+/>
+<PrismicPreview {repositoryName}></PrismicPreview>
 
 <style lang="postcss">
 	:global(html) {

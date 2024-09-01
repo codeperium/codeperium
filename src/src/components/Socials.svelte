@@ -2,7 +2,11 @@
 <script lang="ts">
 	export const prerender = true;
 	import SocialItem from './SocialItem.svelte';
-	let { logo }: { logo: string } = $props();
+	import type { GroupField } from '@prismicio/client';
+	import type { Simplify, NavigationDocumentDataSmItemsItem } from '../prismicio-types';
+	import { PrismicImage, PrismicLink } from '@prismicio/svelte';
+	import type { logoType } from '../ambient';
+	let { logo, links }: { logo: logoType, links: GroupField<Simplify<NavigationDocumentDataSmItemsItem>> } = $props();
 </script>
 
 <div
@@ -19,12 +23,15 @@
       md:max-w-[260px] 
       lg:max-w-[380px]
   ">
-		<img src={logo} alt="codeperium" />
+		<img src={logo as string} alt="codeperium" />
 	</a>
 	<div class="socials h-auto flex flex-wrap justify-center gap-2">
-		<SocialItem href="https://x.com/codeperium" icon="icon-x">X</SocialItem>
-		<SocialItem href="https://www.instagram.com/Codeperium/" icon="icon-ig">Youtube</SocialItem>
-		<SocialItem href="https://www.youtube.com/@codeperium/" icon="icon-yt">Instagram</SocialItem>
-		<SocialItem href="https://www.github.com/Codeperium/" icon="icon-gh">Github</SocialItem>
+		{#each links as item}
+			<PrismicLink field={item.sm_link}> 
+				<SocialItem>	
+					<PrismicImage field={item.sm_icon}></PrismicImage>
+				</SocialItem>
+			</PrismicLink>
+		{/each}
 	</div>
 </div>
