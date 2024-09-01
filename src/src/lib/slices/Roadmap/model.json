@@ -1,0 +1,81 @@
+{
+  "id": "roadmap",
+  "type": "SharedSlice",
+  "name": "Roadmap",
+  "description": "Roadmap",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "start_date": {
+          "type": "Date",
+          "config": {
+            "label": "Start Date",
+            "placeholder": ""
+          }
+        },
+        "status": {
+          "type": "Select",
+          "config": {
+            "label": "Status",
+            "placeholder": "",
+            "options": [
+              "Not Started",
+              "Work in Progress",
+              "Finished"
+            ],
+            "default_value": "Not Started"
+          }
+        },
+        "phase_name": {
+          "type": "Text",
+          "config": {
+            "label": "Phase Name",
+            "placeholder": ""
+          }
+        },
+        "phase_items": {
+          "type": "Group",
+          "config": {
+            "label": "Phase items",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": ""
+                }
+              },
+              "status": {
+                "type": "Select",
+                "config": {
+                  "label": "Status",
+                  "placeholder": "",
+                  "options": [
+                    "Not Started",
+                    "Work in Progress",
+                    "Finished"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

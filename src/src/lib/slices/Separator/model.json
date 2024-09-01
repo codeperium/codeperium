@@ -1,0 +1,34 @@
+{
+  "id": "separator",
+  "type": "SharedSlice",
+  "name": "Separator",
+  "description": "Separator",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": "Roadmap"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

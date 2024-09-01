@@ -1,0 +1,55 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"phase_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pass",
+									"type": "Text"
+								}
+							],
+							[
+								"status",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Not Started",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "wet",
+				"type": "Text"
+			},
+			"start_date": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2020-04-02"
+			},
+			"status": {
+				"__TYPE__": "FieldContent",
+				"value": "Not Started",
+				"type": "Select"
+			},
+			"phase_name": {
+				"__TYPE__": "FieldContent",
+				"value": "dawn",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

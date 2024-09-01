@@ -1,10 +1,6 @@
 type Implements<T, U extends T> = U;
 
-export type logoType = {
-	logo: string | void;
-	logomark: string | void;
-	logoWhite: string | void;
-};
+export type logoType = string | void;
 
 //ICONS
 type TArrowIconVariants = 'up' | 'down' | 'left' | 'right';
