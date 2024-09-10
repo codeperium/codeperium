@@ -3,12 +3,11 @@
 	import type { Snippet } from 'svelte';
 	import { page } from '$app/stores';
 
-	let { href, onclick, children }: { href: string; onclick: any; children: Snippet } = $props();
+	let { href, onclick, children }: { href: string, onclick: any; children: Snippet } = $props();
 	const active = $derived($page.url.pathname === href);
 </script>
 
-<a
-	{href}
+<button
 	{onclick}
 	class:active
 	class="
@@ -20,11 +19,10 @@
     lg:h-[25px] 
     lg:leading-[25px]
     before:animate-nav-squares
-    focus:text-gold
     hover:text-grey-dark
 ">
 	{@render children()}
-</a>
+</button>
 
 <style lang="postcss">
 	.active {
@@ -33,5 +31,10 @@
 			opacity: 1;
 		}
 		color: theme(colors.grey.dark);
+	}
+	button {
+		&:focus{
+			color: theme(colors.gold);
+		}
 	}
 </style>

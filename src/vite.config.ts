@@ -18,5 +18,12 @@ export default defineConfig({
 	},
 	plugins: [
 		sveltekit(),
-  ]
+  	],
+	server: {
+		fs: {
+			allow: [
+				"./slicemachine.config.json"
+			]
+		}
+	}
 });

@@ -1,0 +1,101 @@
+{
+	"format": "custom",
+	"id": "navigation",
+	"label": "Navigation",
+	"repeatable": false,
+	"status": true,
+	"json": {
+		"Main Navigation": {
+			"main_nav": {
+				"type": "Group",
+				"config": {
+					"label": "Navigation",
+					"repeat": true,
+					"fields": {
+						"nav_item_label": {
+							"type": "Text",
+							"config": {
+								"label": "Navigation item label",
+								"placeholder": "home"
+							}
+						},
+						"nav_item_link": {
+							"type": "Link",
+							"config": {
+								"label": "Navigation item link",
+								"placeholder": "/home",
+								"allowTargetBlank": false,
+								"select": null
+							}
+						}
+					}
+				}
+			}
+		},
+		"Social Media": {
+			"sm_items": {
+				"type": "Group",
+				"config": {
+					"label": "Social Media Items",
+					"repeat": true,
+					"fields": {
+						"sm_icon": {
+							"type": "Image",
+							"config": {
+								"label": "Social Media Icon",
+								"constraint": {
+									"width": 24,
+									"height": 24
+								},
+								"thumbnails": []
+							}
+						},
+						"sm_link": {
+							"type": "Link",
+							"config": {
+								"label": "Social Media Link",
+								"placeholder": "https://x.com",
+								"allowTargetBlank": false,
+								"select": null
+							}
+						}
+					}
+				}
+			}
+		},
+		"Policy": {
+			"copyright": {
+				"type": "Text",
+				"config": {
+					"label": "Copyright",
+					"placeholder": "Copyright © 2024 Codeperium by Rafal. All Rights Reserved."
+				}
+			},
+			"policies": {
+				"type": "Group",
+				"config": {
+					"label": "Policies",
+					"repeat": true,
+					"fields": {
+						"policy_label": {
+							"type": "Text",
+							"config": {
+								"label": "policy label",
+								"placeholder": "Terms and conditions"
+							}
+						},
+						"policy_link": {
+							"type": "Link",
+							"config": {
+								"label": "Policy link",
+								"placeholder": "",
+								"allowTargetBlank": true,
+								"select": null
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

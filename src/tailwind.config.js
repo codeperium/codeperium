@@ -70,10 +70,6 @@ export default {
 				'ar-l': 'var(--icon-arrow-left)',
 				'sl-b': 'var(--icon-slash-back)',
 				'sl-f': 'var(--icon-slash-for)',
-				'yt': 'var(--icon-socials-yt)',
-				'x': 'var(--icon-socials-x)',
-				'gh': 'var(--icon-socials-github)',
-				'ig': 'var(--icon-socials-instagram)',
 				size: {
 					'3xsm': '0.875rem',
 					'2xsm': '1rem',

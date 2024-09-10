@@ -2,7 +2,11 @@
 <script lang="ts">
 	import type { MouseEventHandler } from 'svelte/elements';
 	import NavItem from './NavItem.svelte';
+	import type { GroupField } from '@prismicio/client';
+	import type { Simplify, NavigationDocumentDataMainNavItem } from '../prismicio-types';
+	import { PrismicLink } from '@prismicio/svelte';
 
+	let data: { data: GroupField<Simplify<NavigationDocumentDataMainNavItem>>} = $props();
 	let isOpen = $state(false);
 	let innerWidth = $state(0);
 
@@ -49,7 +53,7 @@
 	</button>
 	<div
 		class={`
-      justify-between flex-col 
+      justify-evenly flex-col 
       absolute top-[73px] right-0 
       w-full 
       text-center 
@@ -60,10 +64,13 @@
       ${isOpen ? 'flex' : 'hidden'} 
     `}
 	>
-		<NavItem href="/" onclick={toggleMobileMenu}><h3>Home</h3></NavItem>
-		<NavItem href="/blog" onclick={toggleMobileMenu}><h3>Blog</h3></NavItem>
-		<NavItem href="/portfolio" onclick={toggleMobileMenu}><h3>Portfolio</h3></NavItem>
-		<NavItem href="/contact-us" onclick={toggleMobileMenu}><h3>Contact us</h3></NavItem>
+	{#each data.data as item}
+		<NavItem onclick={toggleMobileMenu} href={item.nav_item_link.url}>
+			<PrismicLink field={item.nav_item_link}>
+				<h3>{item.nav_item_label}</h3>
+			</PrismicLink>
+		</NavItem>
+	{/each}
 	</div>
 </nav>
 

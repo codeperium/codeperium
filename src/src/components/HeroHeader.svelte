@@ -1,8 +1,25 @@
-<svelte:options customElement="hero-header" />
 <script lang="ts">
-	import { onMount, type Snippet } from 'svelte';
+	import { page } from "$app/stores";
+
   export const prerender = true;
-  let { label, subtext }: {label: Snippet<[string]>, subtext: Snippet<[string]>} = $props();
+
+  let { title, subtitle }: {title: string, subtitle: string} = $props();
+  let animatedTitle: HTMLElement = $state() as HTMLElement;
+  let animatedSpan: HTMLElement = $state() as HTMLElement;
+
+  let path = $state($page.url.pathname);
+  $effect(() => {
+    path = $page.url.pathname;
+    restartAnimation(animatedTitle);
+    restartAnimation(animatedSpan);
+  })
+
+  const restartAnimation = (element: HTMLElement) => {
+    const animation = element.style.animation;
+    element.style.animation = 'none';
+    element.offsetHeight;
+    element.style.animation = animation;
+  }
 
 </script>
 
@@ -15,6 +32,7 @@
     xl:px-[84px]
 ">
   <h2 id="label-hero"
+    bind:this={animatedTitle}
     class="
       text-[56px] leading-[56px] font-bold 
       max-w-[1111px]
@@ -22,15 +40,17 @@
       lg:text-[80px] lg:leading-[80px] 
       xl:text-8xl xl:leading-[96px] 
   ">
-      <p>{@render label()}</p>
+      <p>{title}</p>
     </h2>
-  {#if subtext}
-  <span class="
-    text-xl text-gold font-medium 
-    mt-5 
-    inline-block
-    ">
-    {@render subtext()}
+  {#if subtitle}
+  <span 
+    bind:this={animatedSpan}
+    class="
+      text-xl text-gold font-medium 
+      mt-5 
+      inline-block
+  ">
+    {subtitle}
   </span>
   {/if}
 </header>
