@@ -27,8 +27,8 @@
 <!-- TOOD: generate date in external component -->
 <section
 	class="
-			lg:flex lg:justify-center
-			
+		lg:flex
+		xl:mx-[84px] xl:px-[84px]
 ">
 	<div
 		class="
