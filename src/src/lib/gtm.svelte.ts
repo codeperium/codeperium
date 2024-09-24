@@ -17,11 +17,11 @@ export const pushEvent = (eventObj: Event) => {
 
 export const initGTM = (gtag: string) => {
 	onMount(() => {
-		const parentScript = document.getElementsByTagName('script')[0];
+		const head = document.getElementsByTagName("HEAD")[0];
 		const script = document.createElement('script');
 		script.async = true;
 		script.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtag;
-		script.parentNode?.insertBefore(script, parentScript);
+		head.appendChild(script);
 
 		pushEvent({ 'gtm.start': new Date().getTime().toString(), event: 'gtm.js' });
 	});
