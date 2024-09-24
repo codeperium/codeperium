@@ -1,70 +1,117 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
+	import { Date } from '$components';
 
-	let {slice}: {slice: Content.RoadmapSlice} = $props();
-	const date = new Date(slice.primary.start_date as string);
-	date.setDate(date.getDate() + 1);
-	const formatted = new Intl.DateTimeFormat("en-US", {year: "numeric", month: "short"}).format(date);
+	let { slice }: { slice: Content.RoadmapSlice } = $props();
 
 	const fetchColorStatus = (status: String): String => {
 		let res: String;
 		switch (status) {
-			case "Finished":
-				res = "finished";
+			case 'Finished':
+				res = 'finished';
 				break;
-			case "Work in Progress": 
-				res = "in-progress";
+			case 'Work in Progress':
+				res = 'in-progress';
 				break;
-			case "Not Started": 
-				res = "not-started";
+			case 'Not Started':
+				res = 'not-started';
 				break;
 			default:
-				res = "";
+				res = '';
 				break;
 		}
 		return res;
-	}
+	};
 </script>
+
 <!-- TOOD: generate date in external component -->
-<section class="flex justify-center mx-[84px] px-[84px] ">
-	<div 
+<section
+	class="
+			lg:flex lg:justify-center
+			
+">
+	<div
 		class="
-			flex
+			inline-flex
 			left
-			mt-[72px]
-			pr-[25px]
-			min-w-[235px]
+			lg:mt-[72px]
+			text-[16px]
+			mt-[40px]
+			px-6
 	">
 		<p>{slice.primary.label}</p>
-		<p class="ml-[24px] mr-[4px] flex after:w-[25px] after:block after:h-[1px] after:bg-grey-light/10 after:mt-[19px] relative after:absolute after:-right-[30px] after:-top-[9px]">
-			<span class="block w-[20px] h-[20px] before:icon before:icon-ar-l before:icon-red before:icon-sm relative {fetchColorStatus(slice.primary.status)}"></span>
-			<span class="leading-[20px] text-red date {fetchColorStatus(slice.primary.status)}">{formatted}</span>
-			<span class="block w-[20px] h-[20px] -mr-[5px] before:icon before:icon-sl-f before:icon-red before:icon-sm relative {fetchColorStatus(slice.primary.status)}"></span>
-			<span class="block w-[20px] h-[20px] before:icon before:icon-ar-r before:icon-red before:icon-sm relative {fetchColorStatus(slice.primary.status)}"></span>
-		</p>
+		<Date
+			startDate={slice.primary.start_date}
+			statusColor={fetchColorStatus(slice.primary.status)}
+		/>
 	</div>
 	<div
 		class="
-			border-solid border-opacity-10 border-l border-grey-light
+			md:border-solid md:border-opacity-10 md:border-l md:border-grey-light
 			border-solid border-opacity-10 border-b border-grey-light
 			right
-			pt-[48px]
-			px-[48px]
-			pb-[72px]
-			min-w-[840px]
+			pt-8 px-4
+			lg:pt-[48px] lg:px-[48px] lg:pb-[72px]
+			lg:min-w-[650px]
+			min-w-full
+			inline-flex flex-col
+			py-10
 	">
-		<div class="flex items-center mb-[24px]">
-			<span class="block w-[48px] h-[48px] before:icon 
-          before:icon-ar-d-r  before:icon-red relative {fetchColorStatus(slice.primary.status)}"></span>
-			<p class="inline text-[16px] text-white font-medium px-[24px] py-[6px] h-[32px] ml-[24px] status {fetchColorStatus(slice.primary.status)}">{slice.primary.status}</p>
+		<div
+			class="
+				inline-flex
+				items-center
+				mb-[24px]
+		">
+			<span
+				class="
+					block
+					w-[32px] h-[32px]
+					lg:w-[48px] lg:h-[48px]
+					lg:before:icon-xl
+					before:icon before:icon-base before:icon-ar-d-r before:icon-red relative
+					{fetchColorStatus(slice.primary.status)}
+			"></span>
+			<p
+				class="
+				inline-block
+				text-[16px]
+				text-white
+				font-medium
+				px-[24px] py-[6px]
+				h-8 
+				ml-6
+				status
+				{fetchColorStatus(slice.primary.status)}
+			">
+				{slice.primary.status}
+			</p>
 		</div>
-		<p class="font-bold text-[48px] mb-[24px]">{slice.primary.phase_name}</p>
+		<p
+			class="
+				font-bold
+				text-[36px]
+				leading-[36px]
+				lg:text-[48px]
+				mb-[24px]
+				inline-block
+		">
+			{slice.primary.phase_name}
+		</p>
 		<div >
 			{#each slice.primary.phase_items as item}
-			<div class="flex items-center max-h-[20px] text-[16px] mb-[12px] ">
-				<span class="block w-[20px] h-[20px] before:icon before:icon-sm
-          before:icon-ar-r before:icon-red relative mr-[12px] {fetchColorStatus(item.status as String)}"></span>
-				<p class="text-black {fetchColorStatus(item.status as String)}">{item.label}({item.status})</p>
+			<div class="
+					flex
+					pb-3
+					
+			">
+				<span class="
+						block 
+						w-[20px] h-[20px] 
+						mr-3
+						before:icon before:icon-sm before:icon-ar-r before:icon-red relative {fetchColorStatus(item.status as String)}
+				"></span>
+				<p class="max-w-[calc(100vw-64px)] text-black break-words leading-[20px] {fetchColorStatus(item.status as String)}">{item.label}</p>
 			</div>
 			{/each}
 		</div>
@@ -72,14 +119,15 @@
 </section>
 
 <style lang="postcss">
-	.left, .status {
+	.left,
+	.status {
 		font-family: 'Red Hat Mono';
 		font-weight: 600;
 	}
 	.date {
 		font-weight: 700;
 	}
-	.finished{
+	.finished {
 		&.date {
 			@apply text-red;
 		}
@@ -93,7 +141,7 @@
 			@apply icon-red;
 		}
 	}
-	.in-progress{
+	.in-progress {
 		&.date {
 			@apply text-gold;
 		}
@@ -107,7 +155,7 @@
 			@apply icon-gold;
 		}
 	}
-	.not-started{
+	.not-started {
 		@apply text-grey-light;
 		&.date {
 			@apply text-grey-light;
