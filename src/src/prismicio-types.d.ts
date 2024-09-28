@@ -4,7 +4,11 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = RoadmapSlice | SeparatorSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+	| BuyMeACoffeeSlice
+	| RoadmapSlice
+	| SeparatorSlice
+	| HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -203,7 +207,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 	Lang
 >;
 
-type SubpageDocumentDataSlicesSlice = HeroSlice;
+type SubpageDocumentDataSlicesSlice = ContactFormSlice | HeroSlice;
 
 /**
  * Content for Subpage documents
@@ -268,6 +272,60 @@ export type SubpageDocument<Lang extends string = string> = prismic.PrismicDocum
 >;
 
 export type AllDocumentTypes = HomepageDocument | NavigationDocument | SubpageDocument;
+
+/**
+ * Default variation for BuyMeACoffee Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuyMeACoffeeSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *BuyMeACoffee*
+ */
+type BuyMeACoffeeSliceVariation = BuyMeACoffeeSliceDefault;
+
+/**
+ * BuyMeACoffee Shared Slice
+ *
+ * - **API ID**: `buy_me_a_coffee`
+ * - **Description**: BuyMeACoffee
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuyMeACoffeeSlice = prismic.SharedSlice<'buy_me_a_coffee', BuyMeACoffeeSliceVariation>;
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -503,6 +561,12 @@ declare module '@prismicio/client' {
 			SubpageDocumentData,
 			SubpageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			BuyMeACoffeeSlice,
+			BuyMeACoffeeSliceVariation,
+			BuyMeACoffeeSliceDefault,
+			ContactFormSlice,
+			ContactFormSliceVariation,
+			ContactFormSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,

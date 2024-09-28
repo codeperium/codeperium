@@ -11,6 +11,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"buy_me_a_coffee": {
+							"type": "SharedSlice"
+						},
 						"roadmap": {
 							"type": "SharedSlice"
 						},
