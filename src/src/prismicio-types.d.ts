@@ -4,7 +4,11 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = RoadmapSlice | SeparatorSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+	| BuyMeACoffeeSlice
+	| RoadmapSlice
+	| SeparatorSlice
+	| HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -270,6 +274,33 @@ export type SubpageDocument<Lang extends string = string> = prismic.PrismicDocum
 export type AllDocumentTypes = HomepageDocument | NavigationDocument | SubpageDocument;
 
 /**
+ * Default variation for BuyMeACoffee Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuyMeACoffeeSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *BuyMeACoffee*
+ */
+type BuyMeACoffeeSliceVariation = BuyMeACoffeeSliceDefault;
+
+/**
+ * BuyMeACoffee Shared Slice
+ *
+ * - **API ID**: `buy_me_a_coffee`
+ * - **Description**: BuyMeACoffee
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuyMeACoffeeSlice = prismic.SharedSlice<'buy_me_a_coffee', BuyMeACoffeeSliceVariation>;
+
+/**
  * Default variation for ContactForm Slice
  *
  * - **API ID**: `default`
@@ -530,6 +561,9 @@ declare module '@prismicio/client' {
 			SubpageDocumentData,
 			SubpageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			BuyMeACoffeeSlice,
+			BuyMeACoffeeSliceVariation,
+			BuyMeACoffeeSliceDefault,
 			ContactFormSlice,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,

@@ -126,10 +126,16 @@
 			.catch(function (err) {
 				console.error(err, err.stack);
 			});
+		window.location.reload();
 	};
 	let { slice }: { slice: Content.ContactFormSlice } = $props();
 </script>
 
+<div class="flex justify-center font-medium">
+	<p>Contact form is not working currently, it's only a placeholder. <br>
+		If any contact needed please reach to me at: <a href="mailto:contact@codeperium.io" class="hover:font-bold">contact@codeperium.io</a>
+	</p>
+</div>
 <section class="flex justify-center">
 	<form class="flex flex-col">
 		<div class="flex gap-3">
@@ -152,9 +158,9 @@
 		</div>
 		<div class="input-wrapper">	
 			<label for="message" class="label">Message</label>
-			<textarea name="message" id="message" bind:value={Message} class="w-full input"></textarea>
+			<textarea name="message" id="message" bind:value={Message} class="w-full input" rows="5"></textarea>
 		</div>
-		<input type="button" onclick={buttonAction} value="send" />
+		<input type="button" onclick={buttonAction} value="send" class="bg-red text-white font-medium py-2 cursor-pointer hover:bg-gold hover:text-grey-dark" />
 	</form>
 </section>
 
@@ -170,7 +176,7 @@
 			@apply absolute text-sm font-medium text-grey-dark h-[14px] leading-[14px];
 		}
 		.input {
-			@apply h-[20px] bg-transparent;
+			@apply  bg-transparent mt-4;
 		}
 	}
 </style>

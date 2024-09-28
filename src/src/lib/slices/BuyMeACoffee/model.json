@@ -1,0 +1,16 @@
+{
+	"id": "buy_me_a_coffee",
+	"type": "SharedSlice",
+	"name": "BuyMeACoffee",
+	"description": "BuyMeACoffee",
+	"variations": [
+		{
+			"id": "default",
+			"name": "Default",
+			"docURL": "...",
+			"version": "initial",
+			"description": "Default",
+			"imageUrl": ""
+		}
+	]
+}
