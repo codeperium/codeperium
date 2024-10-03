@@ -5,7 +5,8 @@ import type { Icon, TIconType } from '../../ambient';
 import Color from '../../colors';
 import { createClient } from '$lib/prismicio';
 
-export const prerender = true;
+export const prerender = false;
+export const ssr = true;
 const icons: Icon[] = [];
 const iconPrefix = '--icon';
 const createIcon = async <T extends TIconType>(icon: Omit<Icon<T>, 'url' & 'name'>) => {
