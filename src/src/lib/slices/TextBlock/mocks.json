@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"subheading": {
+				"__TYPE__": "FieldContent",
+				"value": "foot",
+				"type": "Text"
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo dolor do ea adipisicing magna Lorem do consectetur anim laborum occaecat Lorem proident qui non. Consectetur aliquip irure reprehenderit commodo pariatur aute aliquip nulla duis velit dolore dolore."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

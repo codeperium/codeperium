@@ -4,7 +4,7 @@
 	export let slice: Content.BuyMeACoffeeSlice;
 </script>
 
-<section class="flex items-center my-4 flex-col">
+<section class="flex items-center py-4 flex-col border-solid border-opacity-10 border-b border-t border-grey-light">
 	<p class="font-bold text-lg">It can't happen without your help!</p>
 	<a target="_blank"
 		class="

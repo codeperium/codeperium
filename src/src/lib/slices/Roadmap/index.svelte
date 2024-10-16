@@ -17,7 +17,7 @@
 				res = 'not-started';
 				break;
 			default:
-				res = '';
+				res = 'default';
 				break;
 		}
 		return res;
@@ -43,6 +43,7 @@
 		<Date
 			startDate={slice.primary.start_date}
 			statusColor={fetchColorStatus(slice.primary.status)}
+			fullDate={false}
 		/>
 	</div>
 	<div

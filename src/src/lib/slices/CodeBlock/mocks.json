@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"language": {
+				"__TYPE__": "FieldContent",
+				"value": "sudden",
+				"type": "Text"
+			},
+			"filename": {
+				"__TYPE__": "FieldContent",
+				"value": "himself",
+				"type": "Text"
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliquip elit elit pariatur dolore eu."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

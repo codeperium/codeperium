@@ -1,0 +1,28 @@
+{
+  "id": "table_block",
+  "type": "SharedSlice",
+  "name": "TableBlock",
+  "description": "TableBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "table": {
+          "type": "StructuredText",
+          "config": {
+            "label": "table",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,hyperlink,image,embed,list-item,o-list-item,rtl,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

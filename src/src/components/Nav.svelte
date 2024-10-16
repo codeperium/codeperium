@@ -61,6 +61,9 @@
       md:flex md:flex-row 
       md:max-w-none
       md:relative md:top-full
+	  md:p-0
+	  z-10
+	  p-4
       ${isOpen ? 'flex' : 'hidden'} 
     `}
 	>

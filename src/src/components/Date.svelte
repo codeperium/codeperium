@@ -1,16 +1,22 @@
 <script lang="ts">
 	import type { DateField } from '@prismicio/client';
-	let { startDate, statusColor }: { startDate: DateField; statusColor: String } = $props();
+	let { startDate, statusColor, fullDate = false, className  }: { startDate: DateField; statusColor: String, fullDate: boolean, className: String } = $props();
 
 	const date = new Date(startDate as string);
 	date.setDate(date.getDate() + 1);
-	const formatted = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short' }).format(
-		date
-	);
+	let formatted =  $state(new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short' }).format(
+			date
+		));	
+	if (fullDate) {
+		formatted = new Intl.DateTimeFormat('en-UK', { day: "2-digit", month: 'long', year: 'numeric'  }).format(
+			date
+		);	
+	} 
+	
 </script>
 
 <p
-	class="xl:ml-[24px] ml-[12px] mr-[4px] flex after:w-[25px] lg:after:block lg:after:h-[1px] lg:after:bg-grey-light/10 lg:after:mt-[19px] relative lg:after:absolute lg:after:-right-[30px] lg:after:-top-[9px]"
+	class={"xl:ml-[24px] ml-[12px] mr-[4px] flex after:w-[25px] lg:after:block lg:after:h-[1px] lg:after:bg-grey-light/10 lg:after:mt-[19px] relative lg:after:absolute lg:after:-right-[30px] lg:after:-top-[9px] " + className}
 >
 	<span
 		class="block w-[20px] h-[20px] before:icon before:icon-ar-l before:icon-red before:icon-sm relative {statusColor}"
@@ -53,7 +59,7 @@
 			@apply icon-gold;
 		}
 	}
-	.not-started {
+	.not-started, .default {
 		@apply text-grey-light;
 		&.date {
 			@apply text-grey-light;

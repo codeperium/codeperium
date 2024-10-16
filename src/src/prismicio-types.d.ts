@@ -4,6 +4,133 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Blog Post → tags*
+ */
+export interface BlogPostDocumentDataTagsItem {
+	/**
+	 * tag field in *Blog Post → tags*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.tags[].tag
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	tag: prismic.ContentRelationshipField<'tags'>;
+}
+
+type BlogPostDocumentDataSlicesSlice =
+	| TableBlockSlice
+	| InfoBlockSlice
+	| CodeBlockSlice
+	| TextBlockSlice;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+	/**
+	 * date field in *Blog Post*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	date: prismic.DateField;
+
+	/**
+	 * Title field in *Blog Post*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Header image field in *Blog Post*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.header_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	header_image: prismic.ImageField<never>;
+
+	/**
+	 * tags field in *Blog Post*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.tags[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	tags: prismic.GroupField<Simplify<BlogPostDocumentDataTagsItem>>;
+
+	/**
+	 * Slice Zone field in *Blog Post*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
+	 * Meta Title field in *Blog Post*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: blog_post.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *Blog Post*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: blog_post.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *Blog Post*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blog_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<BlogPostDocumentData>,
+	'blog_post',
+	Lang
+>;
+
 type HomepageDocumentDataSlicesSlice =
 	| BuyMeACoffeeSlice
 	| RoadmapSlice
@@ -271,7 +398,43 @@ export type SubpageDocument<Lang extends string = string> = prismic.PrismicDocum
 	Lang
 >;
 
-export type AllDocumentTypes = HomepageDocument | NavigationDocument | SubpageDocument;
+/**
+ * Content for tags documents
+ */
+interface TagsDocumentData {
+	/**
+	 * tag field in *tags*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: tags.tag
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	tag: prismic.KeyTextField;
+}
+
+/**
+ * tags document from Prismic
+ *
+ * - **API ID**: `tags`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TagsDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<TagsDocumentData>,
+	'tags',
+	Lang
+>;
+
+export type AllDocumentTypes =
+	| BlogPostDocument
+	| HomepageDocument
+	| NavigationDocument
+	| SubpageDocument
+	| TagsDocument;
 
 /**
  * Default variation for BuyMeACoffee Slice
@@ -299,6 +462,68 @@ type BuyMeACoffeeSliceVariation = BuyMeACoffeeSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BuyMeACoffeeSlice = prismic.SharedSlice<'buy_me_a_coffee', BuyMeACoffeeSliceVariation>;
+
+/**
+ * Primary content in *CodeBlock → Default → Primary*
+ */
+export interface CodeBlockSliceDefaultPrimary {
+	/**
+	 * language field in *CodeBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: code_block.default.primary.language
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	language: prismic.KeyTextField;
+
+	/**
+	 * filename field in *CodeBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: code_block.default.primary.filename
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	filename: prismic.KeyTextField;
+
+	/**
+	 * body field in *CodeBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: code_block.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for CodeBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CodeBlockSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<CodeBlockSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *CodeBlock*
+ */
+type CodeBlockSliceVariation = CodeBlockSliceDefault;
+
+/**
+ * CodeBlock Shared Slice
+ *
+ * - **API ID**: `code_block`
+ * - **Description**: CodeBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CodeBlockSlice = prismic.SharedSlice<'code_block', CodeBlockSliceVariation>;
 
 /**
  * Default variation for ContactForm Slice
@@ -378,6 +603,68 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
+
+/**
+ * Primary content in *InfoBlock → Default → Primary*
+ */
+export interface InfoBlockSliceDefaultPrimary {
+	/**
+	 * Severity field in *InfoBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: info_block.default.primary.severity
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	severity: prismic.SelectField<'Success' | 'Warning' | 'Error'>;
+
+	/**
+	 * Heading field in *InfoBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: info_block.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	heading: prismic.KeyTextField;
+
+	/**
+	 * Body field in *InfoBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: info_block.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for InfoBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoBlockSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<InfoBlockSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *InfoBlock*
+ */
+type InfoBlockSliceVariation = InfoBlockSliceDefault;
+
+/**
+ * InfoBlock Shared Slice
+ *
+ * - **API ID**: `info_block`
+ * - **Description**: InfoBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoBlockSlice = prismic.SharedSlice<'info_block', InfoBlockSliceVariation>;
 
 /**
  * Item in *Roadmap → Default → Primary → Phase items*
@@ -539,6 +826,100 @@ type SeparatorSliceVariation = SeparatorSliceDefault;
  */
 export type SeparatorSlice = prismic.SharedSlice<'separator', SeparatorSliceVariation>;
 
+/**
+ * Primary content in *TableBlock → Default → Primary*
+ */
+export interface TableBlockSliceDefaultPrimary {
+	/**
+	 * table field in *TableBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: table_block.default.primary.table
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	table: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TableBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TableBlockSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TableBlockSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *TableBlock*
+ */
+type TableBlockSliceVariation = TableBlockSliceDefault;
+
+/**
+ * TableBlock Shared Slice
+ *
+ * - **API ID**: `table_block`
+ * - **Description**: TableBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TableBlockSlice = prismic.SharedSlice<'table_block', TableBlockSliceVariation>;
+
+/**
+ * Primary content in *TextBlock → Default → Primary*
+ */
+export interface TextBlockSliceDefaultPrimary {
+	/**
+	 * Subheading field in *TextBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: text_block.default.primary.subheading
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	subheading: prismic.KeyTextField;
+
+	/**
+	 * body field in *TextBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: text_block.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TextBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextBlockSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<TextBlockSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *TextBlock*
+ */
+type TextBlockSliceVariation = TextBlockSliceDefault;
+
+/**
+ * TextBlock Shared Slice
+ *
+ * - **API ID**: `text_block`
+ * - **Description**: TextBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextBlockSlice = prismic.SharedSlice<'text_block', TextBlockSliceVariation>;
+
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -549,6 +930,10 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			BlogPostDocument,
+			BlogPostDocumentData,
+			BlogPostDocumentDataTagsItem,
+			BlogPostDocumentDataSlicesSlice,
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
@@ -560,10 +945,16 @@ declare module '@prismicio/client' {
 			SubpageDocument,
 			SubpageDocumentData,
 			SubpageDocumentDataSlicesSlice,
+			TagsDocument,
+			TagsDocumentData,
 			AllDocumentTypes,
 			BuyMeACoffeeSlice,
 			BuyMeACoffeeSliceVariation,
 			BuyMeACoffeeSliceDefault,
+			CodeBlockSlice,
+			CodeBlockSliceDefaultPrimary,
+			CodeBlockSliceVariation,
+			CodeBlockSliceDefault,
 			ContactFormSlice,
 			ContactFormSliceVariation,
 			ContactFormSliceDefault,
@@ -571,6 +962,10 @@ declare module '@prismicio/client' {
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
+			InfoBlockSlice,
+			InfoBlockSliceDefaultPrimary,
+			InfoBlockSliceVariation,
+			InfoBlockSliceDefault,
 			RoadmapSlice,
 			RoadmapSliceDefaultPrimaryPhaseItemsItem,
 			RoadmapSliceDefaultPrimary,
@@ -579,7 +974,15 @@ declare module '@prismicio/client' {
 			SeparatorSlice,
 			SeparatorSliceDefaultPrimary,
 			SeparatorSliceVariation,
-			SeparatorSliceDefault
+			SeparatorSliceDefault,
+			TableBlockSlice,
+			TableBlockSliceDefaultPrimary,
+			TableBlockSliceVariation,
+			TableBlockSliceDefault,
+			TextBlockSlice,
+			TextBlockSliceDefaultPrimary,
+			TextBlockSliceVariation,
+			TextBlockSliceDefault
 		};
 	}
 }

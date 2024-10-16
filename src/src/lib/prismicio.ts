@@ -23,6 +23,10 @@ const routes: prismic.ClientConfig['routes'] = [
 		type: "subpage",
 		path: "/:uid",
 	},
+	{
+		type: "blog_post",
+		path: "/blog/:uid",
+	}
 ];
 
 /**

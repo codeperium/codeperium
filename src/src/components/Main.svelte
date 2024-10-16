@@ -8,6 +8,7 @@
 <main class="
   w-full
   2xl:max-w-screen-2xl
+  min-h-[100vh]
   ">
 	{@render children()}
 </main>

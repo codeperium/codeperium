@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"severity": {
+				"__TYPE__": "FieldContent",
+				"value": "Warning",
+				"type": "Select"
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "regular",
+				"type": "Text"
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla enim nostrud ea ea enim esse exercitation nisi fugiat ullamco elit ea laboris."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
