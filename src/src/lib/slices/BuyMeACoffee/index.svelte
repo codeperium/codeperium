@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
 
-	export let slice: Content.BuyMeACoffeeSlice;
+	// export let slice: Content.BuyMeACoffeeSlice;
 </script>
 
 <section class="flex items-center py-4 flex-col border-solid border-opacity-10 border-b border-t border-grey-light">

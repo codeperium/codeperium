@@ -13,7 +13,7 @@ export default defineConfig({
 		transformer: 'postcss'
 	},
 	build: {
-		sourcemap: false,
+		sourcemap: true,
 		cssMinify: 'lightningcss'
 	},
 	plugins: [

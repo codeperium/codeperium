@@ -1,0 +1,265 @@
+/**
+ * Gruvbox dark theme
+ *
+ * Adapted from a theme based on:
+ * Vim Gruvbox dark Theme (https://github.com/morhetz/gruvbox)
+ *
+ * @author Azat S. <to@azat.io>
+ * @version 1.0
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+     color: #DAE1E5; /* fg1 / fg */
+     font-family: Consolas, Monaco, "Andale Mono", monospace;
+     direction: ltr;
+     text-align: left;
+     white-space: pre;
+     word-spacing: normal;
+     word-break: normal;
+     line-height: 1.5;
+ 
+     -moz-tab-size: 4;
+     -o-tab-size: 4;
+     tab-size: 4;
+ 
+     -webkit-hyphens: none;
+     -moz-hyphens: none;
+     -ms-hyphens: none;
+     hyphens: none;
+ }
+ 
+ pre[class*="language-"]::-moz-selection,
+ pre[class*="language-"] ::-moz-selection,
+ code[class*="language-"]::-moz-selection,
+ code[class*="language-"] ::-moz-selection {
+     color: #DAE1E5; /* fg0 */
+     background: #262932; /* bg4 */
+ }
+ 
+ pre[class*="language-"]::selection,
+ pre[class*="language-"] ::selection,
+ code[class*="language-"]::selection,
+ code[class*="language-"] ::selection {
+     color: #DAE1E5; /* fg0 */
+     background: #262932; /* bg4 */
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+     padding: 1em;
+     margin: 0.5em 0;
+     overflow: auto;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+     background: #262932; /* bg0_h */
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+     padding: 0.1em;
+     border-radius: 0.3em;
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.cdata {
+     color: #DAE1E5; /* fg4 / gray1 */
+ }
+ 
+ .token.delimiter,
+ .token.boolean,
+ .token.keyword,
+ .token.selector,
+ .token.important,
+ .token.atrule {
+     color: #FF1F30; /* red2 */
+ }
+ 
+ .token.operator,
+ .token.punctuation,
+ .token.attr-name {
+     color: #DAE1E5; /* fg4 / gray1 */
+ }
+ 
+ .token.tag,
+ .token.tag .punctuation,
+ .token.doctype,
+ .token.builtin {
+     color: #D0A45C; /* yellow2 */
+ }
+ 
+ .token.entity,
+ .token.number,
+ .token.symbol {
+     color: #d3869b; /* purple2 */
+ }
+ 
+ .token.property,
+ .token.constant,
+ .token.variable {
+     color: #FF1F30; /* red2 */
+ }
+ 
+ .token.string,
+ .token.char {
+     color: #8DD059; /* green2 */
+ }
+ 
+ .token.attr-value,
+ .token.attr-value .punctuation {
+     color: #DAE1E5; /* fg4 / gray1 */
+ }
+ 
+ .token.url {
+     color: #8DD059; /* green2 */
+     text-decoration: underline;
+ }
+ 
+ .token.function {
+     color: #D0A45C; /* yellow2 */
+ }
+ 
+ .token.regex {
+     background: #8DD059; /* green2 */
+ }
+ 
+ .token.bold {
+     font-weight: bold;
+ }
+ 
+ .token.italic {
+     font-style: italic;
+ }
+ 
+ .token.inserted {
+     background: #DAE1E5; /* fg4 / gray1 */
+ }
+ 
+ .token.deleted {
+     background: #FF1F30; /* red2 */
+ }
+
+ /**
+ * Gruvbox dark theme for Highlight.js
+ *
+ * Adapted from a theme based on:
+ * Vim Gruvbox dark Theme (https://github.com/morhetz/gruvbox)
+ *
+ * @author Azat S. <to@azat.io>
+ * @version 1.0
+ */
+
+.hljs {
+    color: #DAE1E5; /* fg1 / fg */
+    background: #262932; /* bg0_h */
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+ 
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+ 
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.hljs::selection,
+.hljs ::selection {
+    color: #DAE1E5; /* fg0 */
+    background: #262932; /* bg4 */
+}
+
+.hljs::-moz-selection,
+.hljs ::-moz-selection {
+    color: #DAE1E5; /* fg0 */
+    background: #262932; /* bg4 */
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+    color: #DAE1E5; /* fg4 / gray1 */
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr,
+.hljs-attribute,
+.hljs-doctag,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-symbol,
+.hljs-class,
+.hljs-type,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+    color: #FF1F30; /* red2 */
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-bullet,
+.hljs-subst,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-link {
+    color: #8DD059; /* green2 */
+}
+
+.hljs-number,
+.hljs-deletion,
+.hljs-variable,
+.hljs-template-variable {
+    color: #d3869b; /* purple2 */
+}
+
+.hljs-title.class_,
+.hljs-type,
+.hljs-function,
+.hljs-title.function_ {
+    color: #D0A45C; /* yellow2 */
+}
+
+.hljs-attr,
+.hljs-attr-name {
+    color: #DAE1E5; /* fg4 / gray1 */
+}
+
+.hljs-variable,
+.hljs-regexp,
+.hljs-link {
+    color: #8DD059; /* green2 */
+    text-decoration: underline;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-inserted {
+    background: #DAE1E5; /* fg4 / gray1 */
+}
+
+.hljs-deleted {
+    background: #FF1F30; /* red2 */
+}

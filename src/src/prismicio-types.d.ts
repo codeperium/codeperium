@@ -334,7 +334,7 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 	Lang
 >;
 
-type SubpageDocumentDataSlicesSlice = ContactFormSlice | HeroSlice;
+type SubpageDocumentDataSlicesSlice = BlogPostsSlice | ContactFormSlice | HeroSlice;
 
 /**
  * Content for Subpage documents
@@ -435,6 +435,33 @@ export type AllDocumentTypes =
 	| NavigationDocument
 	| SubpageDocument
 	| TagsDocument;
+
+/**
+ * Default variation for BlogPosts Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostsSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *BlogPosts*
+ */
+type BlogPostsSliceVariation = BlogPostsSliceDefault;
+
+/**
+ * BlogPosts Shared Slice
+ *
+ * - **API ID**: `blog_posts`
+ * - **Description**: BlogPosts
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogPostsSlice = prismic.SharedSlice<'blog_posts', BlogPostsSliceVariation>;
 
 /**
  * Default variation for BuyMeACoffee Slice
@@ -948,6 +975,9 @@ declare module '@prismicio/client' {
 			TagsDocument,
 			TagsDocumentData,
 			AllDocumentTypes,
+			BlogPostsSlice,
+			BlogPostsSliceVariation,
+			BlogPostsSliceDefault,
 			BuyMeACoffeeSlice,
 			BuyMeACoffeeSliceVariation,
 			BuyMeACoffeeSliceDefault,

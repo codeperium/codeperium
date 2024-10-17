@@ -57,6 +57,7 @@ export default {
 		}
 	},
 	plugins: [
+		require('@tailwindcss/typography'),
 		({ matchUtilities, addComponents, theme }) => {
 			const icon = {
 				'sq-full': 'var(--icon-squares-full)',
@@ -142,6 +143,6 @@ export default {
 						values: flattenColorPalette(theme('colors'))
 					}
 				);
-		}
+		},
 	]
 };

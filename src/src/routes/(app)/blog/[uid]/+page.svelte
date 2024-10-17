@@ -45,7 +45,7 @@
 			{page.data.title}
 		</h2>
 	</header>
-	<section class="slicezone lg:max-w-[70%] pt-[48px]">
+	<section class="slicezone lg:max-w-[85%] pt-[48px]">
 		<PrismicImage field={page.data.header_image}/>
 		<SliceZone {slices} {components}></SliceZone>
 	</section>
