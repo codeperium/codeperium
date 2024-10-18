@@ -19,11 +19,7 @@ export interface BlogPostDocumentDataTagsItem {
 	tag: prismic.ContentRelationshipField<'tags'>;
 }
 
-type BlogPostDocumentDataSlicesSlice =
-	| TableBlockSlice
-	| InfoBlockSlice
-	| CodeBlockSlice
-	| TextBlockSlice;
+type BlogPostDocumentDataSlicesSlice = CodeBlockSlice;
 
 /**
  * Content for Blog Post documents
@@ -52,6 +48,17 @@ interface BlogPostDocumentData {
 	title: prismic.KeyTextField;
 
 	/**
+	 * tags field in *Blog Post*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.tags[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	tags: prismic.GroupField<Simplify<BlogPostDocumentDataTagsItem>>;
+
+	/**
 	 * Header image field in *Blog Post*
 	 *
 	 * - **Field Type**: Image
@@ -63,15 +70,15 @@ interface BlogPostDocumentData {
 	header_image: prismic.ImageField<never>;
 
 	/**
-	 * tags field in *Blog Post*
+	 * Short description field in *Blog Post*
 	 *
-	 * - **Field Type**: Group
+	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post.tags[]
+	 * - **API ID Path**: blog_post.short_description
 	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#group
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	tags: prismic.GroupField<Simplify<BlogPostDocumentDataTagsItem>>;
+	short_description: prismic.RichTextField;
 
 	/**
 	 * Slice Zone field in *Blog Post*

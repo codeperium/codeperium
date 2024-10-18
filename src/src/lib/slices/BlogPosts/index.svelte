@@ -2,7 +2,8 @@
 	import { type Content } from '@prismicio/client';
 	import {createClient } from "$lib/prismicio";
 	import { onMount } from 'svelte';
-	import { PrismicImage } from '@prismicio/svelte';
+	import { PrismicImage, PrismicRichText } from '@prismicio/svelte';
+	import Date from '$components/Date.svelte';
 
 	const client = createClient();
 	let blogPosts = $state({}) as Iterable<unknown>;
@@ -12,11 +13,43 @@
 
 	let {slice}: {slice: Content.BlogPostsSlice} = $props();
 </script>
-<section class="mt-[48px] px-4 md:px-6 lg:px-10 2xl:px-20 flex flex-wrap  gap-4">
+<section class="mt-[48px] px-4 md:px-6 lg:px-10 2xl:px-20 md:flex md:flex-wrap gap-4">
 {#each blogPosts as post}
-	{console.log(post)}
-	<a href={post.url} class=" block bg-grey-light/20 hover:bg-grey-dark hover:text-white py-4 px-16 max-w-[30%]">
-		<p class="font-bold text-[24px] ">{post.data.title}</p>
+	<a href={post.url} class="post-thumbnail inline-block bg-grey-light/20 hover:bg-grey-dark text-white md:w-[50%] relative w-full">
+		<PrismicImage field={post.data.header_image} />
+		<div class="gradient"></div>
+		<div>
+			<Date
+				startDate={post.data.date}
+				statusColor="in-progress"
+				fullDate={true}
+				className="
+					ml-0
+				"
+			/>
+			<p class="font-bold text-[24px] mb-2 ">{post.data.title}</p>
+			<PrismicRichText field={post.data.short_description} />
+		</div>
 	</a>
 {/each}
 </section>
+
+
+<style lang="postcss">
+	.post-thumbnail {
+		&:hover {
+			.gradient {
+				@apply from-grey-light via-grey-light/70 to-transparent;
+			}
+		}
+		.gradient {
+			@apply absolute inset-0;
+			@apply m-0;
+			@apply bg-gradient-to-t from-black via-black/70 to-transparent;
+			@apply transition-all ease-in-out;
+		}
+		:global(div) {
+			@apply absolute z-10 bottom-0 left-0 mx-8 my-8;
+		}
+	}
+</style>

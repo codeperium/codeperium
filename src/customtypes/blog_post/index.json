@@ -26,14 +26,6 @@
 					"placeholder": ""
 				}
 			},
-			"header_image": {
-				"type": "Image",
-				"config": {
-					"label": "Header image",
-					"constraint": {},
-					"thumbnails": []
-				}
-			},
 			"tags": {
 				"type": "Group",
 				"config": {
@@ -51,21 +43,29 @@
 					}
 				}
 			},
+			"header_image": {
+				"type": "Image",
+				"config": {
+					"label": "Header image",
+					"constraint": {},
+					"thumbnails": []
+				}
+			},
+			"short_description": {
+				"type": "StructuredText",
+				"config": {
+					"label": "Short description",
+					"placeholder": "",
+					"allowTargetBlank": true,
+					"single": "paragraph"
+				}
+			},
 			"slices": {
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
-						"table_block": {
-							"type": "SharedSlice"
-						},
-						"info_block": {
-							"type": "SharedSlice"
-						},
 						"code_block": {
-							"type": "SharedSlice"
-						},
-						"text_block": {
 							"type": "SharedSlice"
 						}
 					}
