@@ -18,7 +18,7 @@
 	<a href={post.url} class="post-thumbnail inline-block bg-grey-light/20 hover:bg-grey-dark text-white md:w-[50%] relative w-full">
 		<PrismicImage field={post.data.header_image} />
 		<div class="gradient"></div>
-		<div>
+		<div class="absolute-container">
 			<Date
 				startDate={post.data.date}
 				statusColor="in-progress"
@@ -27,8 +27,10 @@
 					ml-0
 				"
 			/>
-			<p class="font-bold text-[24px] mb-2 ">{post.data.title}</p>
-			<PrismicRichText field={post.data.short_description} />
+			<p class="font-bold md:text-[24px] text-[18px] mb-2 ">{post.data.title}</p>
+			<div class="hidden lg:block text-[14px]">
+				<PrismicRichText field={post.data.short_description} />
+			</div>
 		</div>
 	</a>
 {/each}
@@ -37,6 +39,9 @@
 
 <style lang="postcss">
 	.post-thumbnail {
+		:global(.date-component-container) {
+			margin-left: 0 !important;
+		}
 		&:hover {
 			.gradient {
 				@apply from-grey-light via-grey-light/70 to-transparent;
@@ -48,7 +53,7 @@
 			@apply bg-gradient-to-t from-black via-black/70 to-transparent;
 			@apply transition-all ease-in-out;
 		}
-		:global(div) {
+		.absolute-container {
 			@apply absolute z-10 bottom-0 left-0 mx-8 my-8;
 		}
 	}
