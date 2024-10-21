@@ -15,7 +15,7 @@
 </script>
 <section class="mt-[48px] px-4 md:px-6 lg:px-10 2xl:px-20 md:flex md:flex-wrap gap-4">
 {#each blogPosts as post}
-	<a href={post.url} class="post-thumbnail inline-block bg-grey-light/20 hover:bg-grey-dark text-white md:w-[50%] relative w-full">
+	<a href={post.url} class="post-thumbnail inline-block bg-grey-light/20 hover:bg-grey-dark text-white md:w-[50%] relative w-full min-h-[320px]">
 		<PrismicImage field={post.data.header_image} />
 		<div class="gradient"></div>
 		<div class="absolute-container">
